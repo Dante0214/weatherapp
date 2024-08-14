@@ -1,12 +1,13 @@
+import { Button, ButtonGroup } from "@mui/material";
 import React from "react";
 
 const WeatherBtn = ({ cities, setCity }) => {
   return (
-    <div>
+    <ButtonGroup variant="text" aria-label="Basic button group">
       {cities.map((city) => (
-        <button onClick={() => setCity(city)}>{city}</button>
+        <Button onClick={() => setCity(city)}>{city}</Button>
       ))}
-    </div>
+    </ButtonGroup>
   );
 };
 

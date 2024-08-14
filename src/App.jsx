@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import WeatherBox from "./components/WeatherBox";
 import WeatherBtn from "./components/WeatherBtn";
+import { Container, Grid } from "@mui/material";
 const API = import.meta.env.VITE_API_KEY;
 const cities = ["seoul", "busan", "tokyo", "barcelona", "sydney"];
 function App() {
@@ -36,11 +37,42 @@ function App() {
     }
   }, [city]);
   return (
-    <>
-      {weather && <WeatherBox weather={weather} />}
-      <WeatherBtn cities={cities} setCity={setCity} />
-      {console.log(weather)}
-    </>
+    <Container
+      maxWidth="sm"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "100vh", // 화면 전체 높이
+        // bgcolor: "white",
+      }}
+    >
+      <Grid
+        container
+        direction="column"
+        alignItems="center"
+        spacing={4}
+        sx={{
+          backgroundColor: "rgba(167, 207, 242, 0.3)",
+          borderRadius: "30px",
+        }}
+      >
+        <Grid item>{weather && <WeatherBox weather={weather} />}</Grid>
+        <Grid
+          item
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "0 0 20px 0",
+          }}
+        >
+          <WeatherBtn cities={cities} setCity={setCity} />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 
