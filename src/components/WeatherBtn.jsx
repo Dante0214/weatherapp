@@ -5,7 +5,12 @@ const WeatherBtn = ({ cities, setCity }) => {
   return (
     <ButtonGroup variant="text" aria-label="Basic button group">
       {cities.map((city) => (
-        <Button onClick={() => setCity(city)}>{city}</Button>
+        <Button
+          sx={{ color: "black", fontWeight: "bold" }}
+          onClick={() => setCity(city)}
+        >
+          {city}
+        </Button>
       ))}
     </ButtonGroup>
   );
