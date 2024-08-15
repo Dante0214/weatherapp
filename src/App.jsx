@@ -9,6 +9,14 @@ function App() {
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState(null);
 
+  const handleSetCity = (city) => {
+    if (city === "current") {
+      setCity(null);
+    } else {
+      setCity(city);
+    }
+  };
+
   const getCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       const lat = position.coords.latitude;
@@ -72,7 +80,7 @@ function App() {
             margin: "0 0 20px 0",
           }}
         >
-          <WeatherBtn cities={cities} setCity={setCity} />
+          <WeatherBtn cities={cities} handleSetCity={handleSetCity} />
         </Grid>
       </Grid>
     </Container>
