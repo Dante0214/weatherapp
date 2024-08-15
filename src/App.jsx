@@ -44,18 +44,21 @@ function App() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "100vh", // 화면 전체 높이
-        // bgcolor: "white",
+        minHeight: "100vh",
+        padding: 0,
       }}
     >
       <Grid
         container
+        justifyContent="center"
         direction="column"
         alignItems="center"
-        spacing={4}
         sx={{
           backgroundColor: "rgba(167, 207, 242, 0.3)",
           borderRadius: "30px",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: 3,
         }}
       >
         <Grid item>{weather && <WeatherBox weather={weather} />}</Grid>
