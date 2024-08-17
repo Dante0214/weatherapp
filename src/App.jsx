@@ -81,7 +81,7 @@ function App() {
           size={150}
           aria-label="Loading Spinner"
         />
-      ) : (
+      ) : !error ? (
         <Grid
           container
           justifyContent="center"
@@ -113,6 +113,8 @@ function App() {
             />
           </Grid>
         </Grid>
+      ) : (
+        error
       )}
     </Container>
   );
